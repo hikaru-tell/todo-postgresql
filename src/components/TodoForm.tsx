@@ -22,7 +22,7 @@ export default function TodoForm({onSubmit}: {onSubmit: () => void}) {
     return (
         <div>
         
-        <form onSubmit={handleSubmit}>
+        <form className="" onSubmit={handleSubmit}>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             <button type="submit">作成</button>
         </form>

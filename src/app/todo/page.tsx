@@ -25,6 +25,16 @@ export default function page(){
 
     }
 
+    const deleteTodo = async (id: string) => {
+        const formData = new FormData()
+        formData.append("id", id)
+        await fetch("/api/todo", {
+            method: "DELETE",
+            body: formData,
+        })
+        fetchTodos();
+    }
+
 
 
 
@@ -37,7 +47,7 @@ export default function page(){
             <h1>Todolist</h1>
             <ul>
                 {todos.map((todo) => (
-                    <TodoCard key={todo.id} todo={todo} updateTodo={updateTodo}/>
+                    <TodoCard key={todo.id} todo={todo} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
                 ))}
             </ul>
             <TodoForm onSubmit={fetchTodos}/>

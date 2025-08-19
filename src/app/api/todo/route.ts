@@ -41,3 +41,15 @@ export async function PATCH(request: Request) {
     })
     return Response.json({});
 }
+
+//削除API
+export async function DELETE(request: Request) {
+    const formData = await request.formData();
+    const id = formData.get("id") as string
+    
+
+    await prisma.todo.delete({
+        where: {id},
+    })
+    return Response.json({});
+}
